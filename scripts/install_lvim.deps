@@ -1,0 +1,13 @@
+#!/bin/bash
+printf '\nInstall deps for LunarVim... requires sudo... \n'
+
+sudo pacman -S nodejs npm python python-pynvim python-pip rustup unzip zip --needed
+
+printf '\nInstalling npm deps... also requires sudo... \n'
+
+sudo npm install -g neovim tree-sitter-cli
+
+printf '\nInstalling cargo deps... no sudo! /n'
+
+rustup default stable
+cargo install fd-find ripgrep
