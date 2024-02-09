@@ -20,7 +20,6 @@ Add key to git:
 
 Add identity to git:
 
-    git config --global user.email "sonny@sonnybox.com"
-    git config --global user.name "Sonny Box"
-
+    git config --global user.email \"sonny@sonnybox.com\"
+    git config --global user.name \"Sonny Box\"
 \n"
