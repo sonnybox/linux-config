@@ -1,8 +1,8 @@
 #!/bin/bash
-printf "\nWe will need to install Samba and NFS
+printf "\nWe will need to install Samba
 \n"
 
-sudo pacman -S samba --needed
+sudo pacman -S samba
 
 echo
 
