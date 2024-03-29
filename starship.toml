@@ -16,6 +16,7 @@ error_symbol = '[\$](red)'
 [directory]
 format = '[](white)[󰉋 $path$read_only]($style)[](white)'
 style = 'bg:white black'
+read_only = ' '
 
 [lua]
 format = ' [](white)[](bold black bg:white)[](white)'
