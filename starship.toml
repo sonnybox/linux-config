@@ -22,6 +22,8 @@ read_only = ' '
 format = ' [](white)[](bold black bg:white)[](white)'
 # format = ' [](white)[ $version](bold blue bg:white)[](white)'
 
+[battery]
+format = '[$symbol$percentage]($style)'
 
 [cmd_duration]
 disabled = true
