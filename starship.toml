@@ -1,12 +1,8 @@
-add_newline = true
 format = """$character"""
-right_format = """$all"""
+right_format = """$battery $all"""
+add_newline = true
 
-[line_break]
-disabled = false
-
-
-[username]
+[jobs]
 disabled = true
 
 [character]
@@ -19,11 +15,22 @@ style = 'bg:white black'
 read_only = ' '
 
 [lua]
-format = ' [](white)[](bold black bg:white)[](white)'
+format = ' [](white)[ lua](bold black bg:white)[](white)'
 # format = ' [](white)[ $version](bold blue bg:white)[](white)'
 
+[bun]
+format = ' [](white)[󱌙 bun](bold black bg:white)[](white)'
+
+[nodejs]
+format = ' [](white)[ node](bold black bg:white)[](white)'
+
 [battery]
-format = '[$symbol$percentage]($style)'
+charging_symbol = '[](green)[󰂄$percentage](white bg:green)[](green)'
+discharging_symbol = '[](red)[󱊡$percentage](white bg:red)[](red)'
+format = '$symbol'
+
+[[battery.display]]
+threshold = 25
 
 [cmd_duration]
 disabled = true
@@ -33,7 +40,6 @@ format = ' [](blue)[󰘬 $branch](bold white bg:blue)[](blue)'
 
 [git_status]
 format = '$conflicted$stashed$deleted$renamed$modified$typechanged$staged$untracked'
-
 up_to_date = ''
 untracked = '[  $count](yellow)'
 modified = '[ 󰤌 $count](fg:#ffaa00)'
