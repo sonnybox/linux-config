@@ -1,5 +1,5 @@
 format = """$character"""
-right_format = """$battery $all"""
+right_format = """$battery $all """
 add_newline = true
 
 [jobs]
@@ -14,15 +14,25 @@ format = '[](white)[󰉋 $path$read_only]($style)[](white)'
 style = 'bg:white black'
 read_only = ' '
 
+[c]
+format = ' '
+
+[python]
+format = ' '
+
 [lua]
-format = ' [](white)[ lua](bold black bg:white)[](white)'
+format = ' '
 # format = ' [](white)[ $version](bold blue bg:white)[](white)'
 
 [bun]
-format = ' [](white)[󱌙 bun](bold black bg:white)[](white)'
+# format = ' 󱌙'
+disabled = true
 
 [nodejs]
-format = ' [](white)[ node](bold black bg:white)[](white)'
+format = ' '
+
+[package]
+disabled = true
 
 [battery]
 charging_symbol = '[](green)[󰂄$percentage](white bg:green)[](green)'

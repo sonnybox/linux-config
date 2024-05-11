@@ -1,14 +1,24 @@
 [window]
-padding = { x = 20, y = 20 }
-opacity = 0.66
+dynamic_padding = true
+padding = { x = 10, y = 0 }
+opacity = 0.85
 title = "Terminal"
 
 [scrolling]
-multiplier = 25
+multiplier = 20
 
 [font]
-normal = { family = "MartianMono Nerd Font", style= "Regular" }
-size = 11
+normal = { family = "SFMono", style="Semibold" }
+bold = { family = "SFMono", style="Heavy" }
+italic = { family = "SFMono", style="Semibold Italic" }
+bold_italic = { family = "SFMono", style="Heavy Italic" }
+size = 10
 
 [selection]
 save_to_clipboard = true
+
+# For mapping Shift + Enter to Neovim
+[[keyboard.bindings]]
+chars = "\u001b[13;2u"
+key = "Return"
+mods = "Shift"

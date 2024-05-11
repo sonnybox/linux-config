@@ -1,0 +1,7 @@
+#!/bin/bash
+killall swaybg
+WALLPAPER=$(cat $HOME/.bin/env/wallpaper)
+WALLPAPER_PATH="$HOME/.bin/var/mojave_dynamic/mojave_dynamic_$WALLPAPER.jpeg"
+# Generate a new wallpaper number, between 1 and 16
+echo "$(($RANDOM % 16))" > ~/.bin/env/wallpaper
+swaybg -i $WALLPAPER_PATH
