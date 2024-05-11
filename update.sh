@@ -10,6 +10,8 @@ cp -r ~/.bin ./
 cd nvim
 git submodule init
 git submodule update
+git checkout main
+git pull
 
 cd ..
 git add .
