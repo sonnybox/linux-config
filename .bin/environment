@@ -1,4 +1,4 @@
 #!/bin/bash
 echo "Setting environment variables..."
 # Generate a random wallpaper number, between 1 and 16
-echo "$(($RANDOM % 16))" > ~/.bin/env/wallpaper
+# echo "$(($RANDOM % 16))" > ~/.bin/env/wallpaper

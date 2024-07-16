@@ -6,4 +6,4 @@ killall swaybg
 # echo "$(($RANDOM % 16))" > ~/.bin/env/wallpaper
 # swaybg -i $WALLPAPER_PATH
 # -m [tile, center, fill...]
-swaybg -i /home/sonny/.bin/var/wallpaper.jpeg -m fill
+swaybg -i /home/sonny/.bin/var/wallpaper-professional.jpeg -m fill

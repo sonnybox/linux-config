@@ -1,6 +1,10 @@
+import = [
+    "~/.config/alacritty/kanagawa_wave.toml"
+]
+
 [window]
-dynamic_padding = true
-padding = { x = 10, y = 0 }
+dynamic_padding = false
+padding = { x = 20, y = 20 }
 opacity = 0.85
 title = "Terminal"
 
@@ -8,10 +12,10 @@ title = "Terminal"
 multiplier = 20
 
 [font]
-normal = { family = "SFMono", style="Semibold" }
-bold = { family = "SFMono", style="Heavy" }
-italic = { family = "SFMono", style="Semibold Italic" }
-bold_italic = { family = "SFMono", style="Heavy Italic" }
+normal = { family = "Maple Mono NF" }
+# bold = { family = "Hack Nerd Font", style="Heavy" }
+# italic = { family = "Hack Nerd Font", style="Semibold Italic" }
+bold_italic = { family = "Maple Mono NF", style="Bold Italic" }
 size = 10
 
 [selection]

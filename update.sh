@@ -6,6 +6,7 @@ cp -r ~/.config/easyeffects/output ./easyeffects
 cp -r ~/.config/rofi ./
 cp -r ~/.config/starship.toml ./
 cp -r ~/.bin ./
+cp -r ~/.config/kitty ./
 
 cd nvim
 git submodule init

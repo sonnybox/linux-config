@@ -1,0 +1,5 @@
+#!/bin/bash
+echo "Starting VPN service"
+sudo systemctl start nordvpnd.service
+nordvpn connect Seattle || true
+nordvpn set killswitch on || true
