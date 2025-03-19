@@ -1,0 +1,6 @@
+{
+    "device": "alsa_output.usb-BurrBrown_from_Texas_Instruments_USB_AUDIO_CODEC-00.analog-stereo",
+    "device-description": "PCM2900C Audio CODEC Analog Stereo",
+    "device-profile": "analog-output",
+    "preset-name": "Default"
+}
