@@ -1,4 +1,8 @@
 btop/
+bin/.webui_secret_key
+fish/fish_variables
+user-dirs.dirs
+user-dirs.locale
 gtk-3.0/
 chromium/
 Code - OSS/
@@ -9,3 +13,12 @@ pulse/
 systemd/
 go/
 yay/
+.webui_secret_key
+GIMP/
+QtProject.conf
+Ultralytics/
+mimeapps.list
+nordvpn/
+qBittorrent/
+qt6ct/
+uv/

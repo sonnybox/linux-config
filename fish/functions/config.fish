@@ -10,6 +10,9 @@ function config
 		case "hypr"
 			cd ~/.config/hypr/
 			nvim hyprland.conf
+		case "tmux"
+			cd ~/.config/tmux/
+			nvim tmux.conf
 		case "kitty"
 			cd ~/.config/kitty/
 			nvim kitty.conf

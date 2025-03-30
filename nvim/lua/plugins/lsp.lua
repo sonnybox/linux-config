@@ -1,32 +1,91 @@
-local masonlsp = function()
-	require('mason-lspconfig').setup({
-		automatic_installation = true,
-		ensure_installed = {
-			'lua_ls',
-			'ruff',
-			'basedpyright',
-			'html',
-		},
-	})
+local masontools = function()
+    require('mason-tool-installer').setup({
+        ensure_installed = {
+            'stylua',
+            'lua_ls',
+            'ruff',
+            'basedpyright',
+            'html',
+        },
+    })
+end
 
-	local lsp = require('lspconfig')
-	lsp.lua_ls.setup({})
-	lsp.html.setup({})
+local masonlsp = function()
+    local lsp = require('lspconfig')
+    lsp.lua_ls.setup({
+        settings = {
+            Lua = {
+                diagnostics = {
+                    disable = { 'missing-fields' },
+                },
+            },
+        },
+    })
+    lsp.html.setup({})
+    lsp.basedpyright.setup({})
+    lsp.ruff.setup({})
+end
+
+local mason = function()
+    require('mason').setup({
+        ui = {
+            icons = {
+                package_installed = '',
+                package_pending = '',
+                package_uninstalled = '',
+            },
+        },
+    })
+end
+
+local nonels = function()
+    local null_ls = require('null-ls')
+    local augroup = vim.api.nvim_create_augroup('LspFormatting', {})
+    null_ls.setup({
+        sources = {
+            null_ls.builtins.formatting.stylua,
+            require('none-ls.formatting.ruff').with({
+                extra_args = { '--extend-select', 'I' },
+            }),
+        },
+        on_attach = function(client, bufnr)
+            if client.supports_method('textDocument/formatting') then
+                vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+                vim.api.nvim_create_autocmd('BufWritePre', {
+                    group = augroup,
+                    buffer = bufnr,
+                    callback = function() vim.lsp.buf.format({ async = false }) end,
+                })
+            end
+        end,
+    })
 end
 
 return {
-	'williamboman/mason-lspconfig.nvim',
-	config = masonlsp,
-	dependencies = {
-		{ 'neovim/nvim-lspconfig' },
-		{
-			'folke/lazydev.nvim',
-			ft = 'lua',
-			opts = {
-				library = {
-					{ path = '${3rd}/luv/library', words = { 'vim%.uv' } },
-				},
-			},
-		},
-	},
+    {
+        'nvimtools/none-ls.nvim',
+        config = nonels,
+        dependencies = {
+            'nvim-lua/plenary.nvim',
+            'nvimtools/none-ls-extras.nvim',
+        },
+    },
+    { 'williamboman/mason.nvim', config = mason },
+    { 'WhoIsSethDaniel/mason-tool-installer.nvim', config = masontools },
+    {
+        'williamboman/mason-lspconfig.nvim',
+        config = masonlsp,
+        dependencies = {
+            { 'neovim/nvim-lspconfig' },
+            {
+                'folke/lazydev.nvim',
+                ft = 'lua',
+                opts = {
+                    library = {
+                        { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
+                    },
+                },
+            },
+        },
+    },
 }

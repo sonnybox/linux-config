@@ -1,0 +1,45 @@
+{
+  "editor.formatOnSave": true,
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "workbench.colorTheme": "Gruvbox Dark Hard",
+  "git.openRepositoryInParentFolders": "never",
+  "editor.indentSize": 4,
+  "editor.tabSize": 4,
+  "editor.fontFamily": "Maple Mono NF",
+  "ruff.lint.select": ["ALL"],
+  "ruff.lint.ignore": [
+    "D100",
+    "D101",
+    "D102",
+    "D103",
+    "D104",
+    "D105",
+    "D106",
+    "D107",
+    "D200",
+    "D205",
+    "D212",
+    "D400",
+    "D401",
+    "D415",
+    "E501",
+    "T201",
+    "RUF001",
+    "S603",
+    "COM812"
+  ],
+  "editor.cursorStyle": "line-thin",
+  "editor.cursorBlinking": "phase",
+  "ruff.organizeImports": true,
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+  },
+  "Lua.diagnostics.globals": ["vim"],
+  "editor.fontSize": 18,
+  "pyright.disableOrganizeImports": true
+}

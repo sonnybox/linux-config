@@ -1,0 +1,4 @@
+#!/bin/fish
+pyenv shell 3.11
+chromium http://localhost:8080/
+open-webui serve

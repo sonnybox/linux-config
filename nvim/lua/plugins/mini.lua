@@ -1,33 +1,59 @@
 local mini = function()
-	require('mini.pairs').setup()
-	require('mini.files').setup()
-	require('mini.icons').setup()
-	local gen_loader = require('mini.snippets').gen_loader
-	require('mini.snippets').setup({
-		snippets = {
-			-- Load custom file with global snippets first (adjust for Windows)
-			gen_loader.from_file(
-				'/home/sonny/.local/share/nvim/lazy/friendly-snippets/snippets/html.json'
-			),
+    require('mini.pairs').setup()
+    require('mini.icons').setup()
+    require('mini.files').setup()
+    require('mini.surround').setup()
+    require('mini.jump').setup()
+    require('mini.pick').setup()
+    require('mini.cursorword').setup()
+    require('mini.git').setup()
+    require('mini.diff').setup()
+    require('mini.statusline').setup()
+    require('mini.tabline').setup()
+    require('mini.clue').setup({
+        triggers = {
+            { mode = 'n', keys = '<leader>' },
+        },
+    })
 
-			-- Load snippets based on current language by reading files from
-			-- "snippets/" subdirectories from 'runtimepath' directories.
-			gen_loader.from_lang(),
-		},
-	})
-	MiniIcons.tweak_lsp_kind()
-	require('mini.completion').setup()
-	vim.keymap.set(
-		'n',
-		'<leader>f',
-		require('mini.files').open,
-		{ noremap = true, silent = true }
-	)
+    local hipatterns = require('mini.hipatterns')
+    hipatterns.setup({
+        highlighters = {
+            hex_color = hipatterns.gen_highlighter.hex_color(),
+        },
+    })
+
+    local indentscope = require('mini.indentscope')
+    indentscope.setup({
+        symbol = '│',
+        draw = { animation = indentscope.gen_animation.none() },
+    })
+
+    local noti = require('mini.notify')
+    noti.setup()
+    vim.notify = noti.make_notify({
+        ERROR = { duration = 5000 },
+        WARN = { duration = 4000 },
+        INFO = { duration = 3000 },
+    })
+
+    -- require('mini.ai').setup()
+    vim.keymap.set(
+        'n',
+        '<leader>e',
+        require('mini.files').open,
+        { noremap = true, silent = true }
+    )
+    vim.keymap.set(
+        'n',
+        '<leader>ff',
+        function() MiniPick.builtin.files() end,
+        { noremap = true, silent = true }
+    )
 end
 
 return {
-	'echasnovski/mini.nvim',
-	config = mini,
-	version = '*',
-	dependencies = { 'rafamadriz/friendly-snippets' },
+    'echasnovski/mini.nvim',
+    config = mini,
+    version = false,
 }

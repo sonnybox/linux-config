@@ -1,0 +1,4 @@
+#!/bin/fish
+cd ~/git/ComfyUI
+source comfy-venv/bin/activate.fish
+python main.py --listen 0.0.0.0
